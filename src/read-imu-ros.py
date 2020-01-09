@@ -2,6 +2,8 @@ import serial
 import syslog
 import time
 import json
+import rospy
+from sensor_msgs.msg import Imu
 
 imu_port = '/dev/ttyACM0'
 ard = serial.Serial(imu_port,57600,timeout=5)
