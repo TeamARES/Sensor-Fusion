@@ -17,9 +17,11 @@ def talker():
     rospy.init_node('ros_erle_imu', anonymous=True)
     rate = rospy.Rate(10)
 
-    msg = Imu()
+
+
     flag = True
     while not rospy.is_shutdown():
+        msg = Imu()
         try:
             if flag:
                 flag = False
@@ -30,7 +32,7 @@ def talker():
             string_n = b.decode()  # decode byte string into Unicode
             string = string_n.rstrip()  # remove \n and \r
             imu_obj = json.loads(string)
-            print(imu_obj)
+            msg.header.stamp = rospy.Time.now()
 
 
         # Fill message
