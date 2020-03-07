@@ -33,6 +33,7 @@ def talker():
             string = string_n.rstrip()  # remove \n and \r
             imu_obj = json.loads(string)
             msg.header.stamp = rospy.Time.now()
+            msg.header.frame_id = "odom"
 
 
         # Fill message
